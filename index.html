@@ -41,11 +41,11 @@
         <script src="data/_3.js"></script>
         <script src="data/_4.js"></script>
         <script src="data/_5.js"></script>
-        <script src="data/_6.js"></script>
+        <script src="data/new_layer_6.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[13.828219806180398,100.53345267752022],[13.835314600292122,100.5480626246969]]);
+        }).fitBounds([[13.818733282148195,100.49129439857488],[13.84710793917341,100.54973262115277]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -487,8 +487,12 @@
         });
         bounds_group.addLayer(layer__5);
         map.addLayer(layer__5);
-        function pop__6(feature, layer) {
+        function pop_new_layer_6(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">fid</th>\
+                        <td>' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">NAME</th>\
                         <td>' + (feature.properties['NAME'] !== null ? autolinker.link(String(feature.properties['NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -529,9 +533,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style__6_0() {
+        function style_new_layer_6_0() {
             return {
-                pane: 'pane__6',
+                pane: 'pane_new_layer_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -540,26 +544,26 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(229,182,54,1.0)',
+                fillColor: 'rgba(196,60,57,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane__6');
-        map.getPane('pane__6').style.zIndex = 406;
-        map.getPane('pane__6').style['mix-blend-mode'] = 'normal';
-        var layer__6 = new L.geoJson(json__6, {
+        map.createPane('pane_new_layer_6');
+        map.getPane('pane_new_layer_6').style.zIndex = 406;
+        map.getPane('pane_new_layer_6').style['mix-blend-mode'] = 'normal';
+        var layer_new_layer_6 = new L.geoJson(json_new_layer_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json__6',
-            layerName: 'layer__6',
-            pane: 'pane__6',
-            onEachFeature: pop__6,
-            style: style__6_0,
+            dataVar: 'json_new_layer_6',
+            layerName: 'layer_new_layer_6',
+            pane: 'pane_new_layer_6',
+            onEachFeature: pop_new_layer_6,
+            style: style_new_layer_6_0,
         });
-        bounds_group.addLayer(layer__6);
-        map.addLayer(layer__6);
+        bounds_group.addLayer(layer_new_layer_6);
+        map.addLayer(layer_new_layer_6);
         var overlaysTree = [
-            {label: '<img src="legend/_6.png" /> แปลนเวนคืน', layer: layer__6},
+            {label: '<img src="legend/new_layer_6.png" /> แปลนเวนคืนใหม่ — new_layerแปลนเวนคืน', layer: layer_new_layer_6},
             {label: '<img src="legend/_5.png" /> แนวถนนสาธารณะ', layer: layer__5},
             {label: '<img src="legend/_4.png" /> สะพานข้ามแยก', layer: layer__4},
             {label: '<img src="legend/_3.png" /> สะพานข้ามคลอง', layer: layer__3},
